@@ -9,9 +9,9 @@ from bs4 import BeautifulSoup
 app = Flask(__name__)
 
 # --- Constants ---
-MODEL_URL = "https://drive.google.com/uc?export=download&id=13rKiqpIlViPzH1U7oRhJk8py5ch-YbFe"
+MODEL_URL = "https://github.com/Sparrowehawk/Fake-news-checker/releases/tag/v1.0.0/fake_news_model.keras"
 MODEL_FILE = "fake_news_model.keras"
-VECTORIZER_FILE = "vectorizer.pkl"  # Make sure this is deployed alongside or fetched too
+VECTORIZER_FILE = "vectorizer.pkl"  
 
 # --- Utilities ---
 
