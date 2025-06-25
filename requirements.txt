@@ -1,0 +1,7 @@
+flask
+tensorflow
+scikit-learn
+joblib
+beautifulsoup4
+requests
+gunicorn
