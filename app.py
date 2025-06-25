@@ -18,10 +18,16 @@ VECTORIZER_FILE = "vectorizer.pkl"
 def download_file(url, filename):
     if not os.path.exists(filename):
         print(f"🔽 Downloading {filename}...")
-        r = requests.get(url)
+        r = requests.get(url, stream=True)
+        print(f"Response status: {r.status_code}")
+        print(f"Content-Type: {r.headers.get('content-type')}")
+        total_size = 0
         with open(filename, "wb") as f:
-            f.write(r.content)
-        print(f"✅ Downloaded {filename}")
+            for chunk in r.iter_content(chunk_size=8192):
+                if chunk:
+                    total_size += len(chunk)
+                    f.write(chunk)
+        print(f"✅ Downloaded {filename} ({total_size} bytes)")
     else:
         print(f"🟢 {filename} already exists.")
 
